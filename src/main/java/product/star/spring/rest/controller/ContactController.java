@@ -21,13 +21,11 @@ public class ContactController {
     }
 
     @PostMapping
-    public ContactDto createContact(
-        @RequestParam String firstname,
-        @RequestParam String lastname,
-        @RequestParam String phonenumber,
-        @RequestParam String email
-    ) {
-        return contactFacade.createContact(firstname, lastname, phonenumber, email);
+    public ContactDto createContact(@RequestParam String firstName,
+                                    @RequestParam String lastName,
+                                    @RequestParam String phoneNumber,
+                                    @RequestParam String email) {
+        return contactFacade.createContact(firstName, lastName, phoneNumber, email);
     }
 
 }
