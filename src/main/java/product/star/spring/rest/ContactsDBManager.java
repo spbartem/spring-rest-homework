@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HomeworkSpringRestApplication {
+public class ContactsDBManager {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HomeworkSpringRestApplication.class, args);
+		SpringApplication.run(ContactsDBManager.class, args);
 	}
 
 }

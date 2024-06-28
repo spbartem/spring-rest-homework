@@ -1,5 +1,6 @@
 package product.star.spring.rest.facade;
 
+import org.springframework.stereotype.Service;
 import product.star.spring.rest.dao.ContactDao;
 import product.star.spring.rest.dao.dto.ContactDto;
 import product.star.spring.rest.model.Contact;
@@ -7,6 +8,7 @@ import product.star.spring.rest.model.Contact;
 import java.util.ArrayList;
 import java.util.Collection;
 
+@Service
 public class ContactFacade {
 
     private final ContactDao contactDao;
