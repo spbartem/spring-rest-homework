@@ -11,5 +11,5 @@ public interface ContactDao {
     Optional<Contact> findContact(long contactId);
     Contact getContact(long contactId);
     Collection<Contact> getAllContacts();
-
+    boolean updateContact(long contactId, Contact contact);
 }

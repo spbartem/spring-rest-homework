@@ -4,7 +4,6 @@ import product.star.spring.rest.dao.ContactDao;
 import product.star.spring.rest.model.Contact;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class InMemoryContactDao implements ContactDao {
 
@@ -33,7 +32,17 @@ public class InMemoryContactDao implements ContactDao {
                 .orElseThrow(() -> new IllegalArgumentException("Contact not found: " + contactId));
     }
 
+    @Override
     public Collection<Contact> getAllContacts() {
         return new ArrayList<>(contactMap.values());
+    }
+
+    @Override
+    public boolean updateContact(long contactId, Contact contact) {
+        if (!contactMap.containsKey(contactId)) {
+            throw new IllegalArgumentException("Contact not found: " + contactId);
+        }
+        contactMap.put(contactId, contact);
+        return true;
     }
 }

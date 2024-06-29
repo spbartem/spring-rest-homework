@@ -5,7 +5,6 @@ import product.star.spring.rest.dao.ContactDao;
 import product.star.spring.rest.dao.dto.ContactDto;
 import product.star.spring.rest.model.Contact;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 @Service
@@ -23,18 +22,20 @@ public class ContactFacade {
     }
 
     public ContactDto getContact(long contactId) {
+
         var contact = contactDao.getContact(contactId);
         return new ContactDto(contact);
     }
 
     public Collection<ContactDto> getAllContacts() {
-        //TODO update to stream api
 
-        ArrayList<ContactDto> listOfContactDto = new ArrayList<>();
-        var listOfContacts = contactDao.getAllContacts();
-        for (Contact contact : listOfContacts) {
-            listOfContactDto.add(new ContactDto(contact));
-        }
-        return listOfContactDto;
+        return contactDao.getAllContacts().stream()
+                .map(ContactDto::new)
+                .toList();
+    }
+
+    public boolean updateContact(long contactId, Contact contact) {
+
+        return contactDao.updateContact(contactId, contact);
     }
 }
